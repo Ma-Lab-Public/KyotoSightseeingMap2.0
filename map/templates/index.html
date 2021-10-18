@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Kyoto Tourism Map 2.0</title>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% load static %}
+{#    <link href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">#}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link href="{% static 'css/style.css'   %}" rel="stylesheet">
+{#    {% endcompress %}#}
+</head>
+
+<body>
+    <nav id="sidemenu" class="border-right border-dark">
+        <div class="sidemenu-header">
+            <h2 class="sidemenu-title">Kyoto Tourism Map 2.0</h2>
+
+        </div>
+        <div class="sidemenu-container border-left" data-bind="">
+            <h3 class="sidemenu-title">Selected POIs</h3>
+            <div id="route_results_wrap">
+                <div id="route_results" data-bind="if: routePoints() != null">
+                    <div class="list-group col-lg-12">
+                        <ul class="places-list" data-bind="foreach: routePoints">
+                            <span class="list-group-item list-group-item-action flex-column align-items-start">
+                                <div class ="row align-items-center">
+                                    <div class="col-7">
+                                        <strong class="w-100" data-bind="text: pname"></strong>
+                                    </div>
+                                    <div class="col float-right">
+                                        <div class="btn-group float-right">
+                                            <button type="button" class="btn btn-success" data-bind="click: $root.swap.bind($parent, $data)">Swap</button>
+                                            <button type="button" class="btn btn-danger" data-bind="click: $root.removePoint.bind($parent, $data)">X</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="w-70">
+                                        <img style="width: 100%" data-bind="attr:{src: showImg}">
+                                    </div>
+                                </div>
+                            </span>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="map">
+    </div>
+
+{#    {% compress js %}#}
+    <script src="{% static 'js/jquery.js' %}"></script>
+{#    <script src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script>#}
+    <script src="{% static 'js/knockout-latest.js' %}"></script>
+    <script src="https://unpkg.com/@googlemaps/markerwithlabel/dist/index.min.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+{#    {% endcompress %}#}
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ GOOGLE_MAP_API_KEY }}&callback=initMap"></script>
+</body>
+
+</html>
