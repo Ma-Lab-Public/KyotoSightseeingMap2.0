@@ -18,4 +18,4 @@
 - Django
 
 ## Deployment
-for AWS, please refer to [Deploying a Django application to Elastic Beanstalk](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-django.html).
+For AWS, please refer to [Deploying a Django application to Elastic Beanstalk](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-django.html).
