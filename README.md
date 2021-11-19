@@ -10,3 +10,12 @@
 4. To test this source code, you need to add your `GOOGLE_MAP_API_KEY` to the `tourmap/setting.py`.
 
 5. Please cite this work if it is used by your works.
+
+## Requirements
+- Python3.6 or higher
+- pip
+- virtualenv
+- Django
+
+## Deployment
+for AWS, please refer to [Deploying a Django application to Elastic Beanstalk](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-django.html).
